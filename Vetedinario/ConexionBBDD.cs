@@ -11,6 +11,7 @@ namespace Vetedinario
     {
         public MySqlConnection conecta()
         {
+
             /*Se necesitan 5 parametros:
              * 1ª Server: IP o nombre del servidor
              * 2ª Database: Nombre de la BBDD
@@ -27,5 +28,6 @@ namespace Vetedinario
             conexion.Open();
             return conexion;
         }
+
     }
 }

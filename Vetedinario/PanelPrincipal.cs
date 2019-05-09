@@ -23,11 +23,10 @@ namespace Vetedinario
         {
             MySqlConnection conexion = new ConexionBBDD().conecta();
 
-            MySqlCommand comando = new MySqlCommand("" +
-                "SELECT * from usuarios where " +
-                " usuario = '" + textBox1.Text +
-                "' and pass ='" + textBox2.Text+
-                "' ;", conexion);
+          //  MySqlCommand comando = new MySqlCommand("SELECT * from usuarios where " + " usuario = '" +textBox1.Text +"' and pass ='" + textBox2.Text+"' ;", conexion);
+            MySqlCommand comando = new MySqlCommand("SELECT * from usuarios where usuario=@usuario and pass=@pass", conexion);
+            comando.Parameters.AddWithValue("@usuario", textBox1.Text);
+            comando.Parameters.AddWithValue("@pass", textBox2.Text);
 
             MySqlDataReader resultado = comando.ExecuteReader();
             if (resultado.Read())
